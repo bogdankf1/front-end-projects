@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pomodoro timer</title>
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Bootstrap  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Awesome fonts Bootstrap -->
+    <script src="https://use.fontawesome.com/462f5790fa.js" defer></script>
+    <!-- ACTIVATE IF INTERNET DISABLED -->
+     <!-- <script src="sources/jquery-3.2.1.min.js"></script>
+    <script src="sources/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="sources/bootstrap.min.css"> -->
+
+    <!-- APP SCRIPT AND CSS -->
+    <script src="scripts/pomodoroTimer.js"></script>
+    <link rel="stylesheet" href="css/pomodoroTimer.css">
+  </head>
+  <body>
+    <h1 class="text-center">Keep calm and work hard!</h1>
+    <div class="row" id="settings-block">
+      <div class="col-xs-6 settings" id="break-settings">
+        <h4>Break duration</h4>
+        <div class="break switch-operators" id="br-subtract">-</div>
+        <div id="break-value" class="break">5</div>
+        <div class="break switch-operators" id="br-sum">+</div>
+      </div>
+      <div class="col-xs-6 settings" id="pomodoro-settings">
+        <h4>Pomodoro duration</h4>
+        <div class="pomodoro switch-operators" id="pm-subtract">-</div>
+        <div id="pomodoro-value" class="pomodoro">25</div>
+        <div class="pomodoro switch-operators" id="pm-sum">+</div>
+      </div>
+    </div>
+    <div id="timer">
+      <div id="timer-header">Pomodoro timer</div>
+      <div class="row timer-buttons-block">
+        <div class="col-xs-6 timer-buttons" id="stop-button">
+          <div id="stop-start">Stop</div>
+        </div>
+        <div class="col-xs-6 timer-buttons" id="reset-button">
+          <div id="reset">Reset</div>
+        </div>
+      </div>
+      <div id="countdown">25:00</div>
+    </div>
+    <footer class="text-center"><em>Coded and designed by <a href="https://www.freecodecamp.org/bogdankf1" target = "_blank">Bogdan Burukhin.</a></em></footer>
+    <script>
+      $(document).ready(function () {
+        var breakValue = parseInt($("#break-value").html());
+        var pomodoroValue = parseInt($("#pomodoro-value").html());
+        $("#br-subtract").click(function () {
+          breakValue--;
+          $("#break-value").html(breakValue);
+        });//end of break subtract
+        $("#br-sum").click(function () {
+          breakValue++;
+          $("#break-value").html(breakValue);
+        });//end of break sum
+        $("#pm-subtract").click(function () {
+          pomodoroValue--;
+          $("#pomodoro-value").html(pomodoroValue);
+          $("#countdown").html(pomodoroValue + ":00");
+        });//end of pomodoro subtract
+        $("#pm-sum").click(function () {
+          pomodoroValue++;
+          $("#pomodoro-value").html(pomodoroValue);
+          $("#countdown").html(pomodoroValue + ":00");
+        });//end of pomodoro sum
+
+        $("#countdown").click(function () {
+          var i = 59;
+          pomodoroValue--;
+          // $("#br-subtract, #br-sum, #pm-subtract, #pm-sum").unbind("click");
+          $("#stop-start").click(function () {
+            if($(this).html() == "Stop") {
+              $("#br-subtract, #br-sum, #pm-subtract, #pm-sum").bind("click");
+              $(this).html("Start");
+              clearInterval(time);
+            } else {
+              $(this).html("Stop");
+              time = setInterval(function () {
+                if(pomodoroValue == 0 && i == 0) {
+                  clearInterval(time);
+                }
+                if(pomodoroValue > 0 && pomodoroValue < 10) {
+                  if(i < 0) {
+                    pomodoroValue--;
+                    i = 59;
+                    $("#countdown").html("0"+ pomodoroValue + ":" + i);
+                  } else if(i >= 0 && i < 10) {
+                    $("#countdown").html("0" + pomodoroValue + ":0" + i);
+                  } else {
+                    $("#countdown").html("0"+ pomodoroValue + ":" + i);
+                  }
+                }// end of main if
+                else {
+                  if(i < 0) {
+                    pomodoroValue--;
+                    i = 59;
+                    $("#countdown").html(pomodoroValue + ":" + i);
+                  } else if(i >= 0 && i < 10) {
+                    $("#countdown").html(pomodoroValue + ":0" + i);
+                  } else {
+                    $("#countdown").html(pomodoroValue + ":" + i);
+                  }
+                }// end of main else
+                i--;
+              }, 1000);
+            }
+            $("#reset").click(function () {
+              $("#countdown, #br-subtract, #br-sum, #pm-subtract, #pm-sum").bind("click");
+              $("#stop-start").html("Stop");
+              pomodoroValue = 25;
+              i = 59;
+              $("#countdown").html(pomodoroValue + ":00");
+            });
+          });
+          var time = setInterval(function () {
+            if(pomodoroValue == 0 && i == 0) {
+              clearInterval(time);
+            }
+            if(pomodoroValue > 0 && pomodoroValue < 10) {
+              if(i < 0) {
+                pomodoroValue--;
+                i = 59;
+                $("#countdown").html("0"+ pomodoroValue + ":" + i);
+              } else if(i >= 0 && i < 10) {
+                $("#countdown").html("0" + pomodoroValue + ":0" + i);
+              } else {
+                $("#countdown").html("0"+ pomodoroValue + ":" + i);
+              }
+            }// end of main if
+            else {
+              if(i < 0) {
+                pomodoroValue--;
+                i = 59;
+                $("#countdown").html(pomodoroValue + ":" + i);
+              } else if(i >= 0 && i < 10) {
+                $("#countdown").html(pomodoroValue + ":0" + i);
+              } else {
+                $("#countdown").html(pomodoroValue + ":" + i);
+              }
+            }// end of main else
+            i--;
+          }, 1000); // end of setInterval
+        });//end of timer
+      });//end of ready
+    </script>
+  </body>
+</html>

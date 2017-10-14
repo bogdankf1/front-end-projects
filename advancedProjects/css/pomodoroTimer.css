@@ -1,0 +1,98 @@
+body {
+  background-color: #6B6B6B;
+}
+h1 {
+  margin-top: 20px;
+  font-size: 40px;
+  color: white;
+  /* text-shadow: 1px 1px 2px black;*/
+  font-family: 'Droid Serif', serif;
+}
+#timer {
+  margin: 0 auto;
+  width: 350px;
+  height: 350px;
+  margin-top: 50px;
+  border-radius: 50%;
+  border: solid;
+  border-color: #CE0500;
+  user-select: none;
+}
+#timer-header {
+  margin: 0 auto;
+  width: 170px;
+  height: 50px;
+  margin-top: 40px;
+  font-size: 40px;
+  text-align:center;
+  color: black;
+  opacity: 0.8;
+}
+#countdown {
+  margin: 0 auto;
+  width: 145px;
+  height: 50px;
+  margin-top: 30px;
+  font-size: 60px;
+}
+footer {
+  margin-top: 20px;
+  color: white;
+}
+a:visited {
+  color: white;
+}
+a {
+  color: white;
+}
+#settings-block {
+  margin: 0 auto;
+  width: 600px;
+  height: 70px;
+  margin-top: 50px;
+}
+.settings {
+  width: 230px;
+  height: 70px;
+  text-align: center;
+  color: black;
+  opacity: 0.8;
+  user-select: none;
+}
+#break-settings {
+  margin-right: 70px
+}
+#pomodoro-settings {
+  margin-left: 70px
+}
+.break {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 30px;
+}
+.pomodoro {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 30px;
+}
+.switch-operators {
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.timer-buttons-block {
+  margin: 0 auto;
+  width: 190px;
+  height: 30px;
+  text-align: center;
+  margin-top: 70px;
+  font-size: 25px;
+}
+#stop-button {
+  width: 50px;
+  margin-right: 30px;
+}
+#reset-button {
+  width: 50px;
+  margin-left: 30px;
+}

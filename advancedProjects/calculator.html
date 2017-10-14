@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Calculator</title>
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Bootstrap  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Awesome fonts Bootstrap -->
+    <script src="https://use.fontawesome.com/462f5790fa.js" defer></script>
+    <!-- ACTIVATE IF INTERNET DISABLED -->
+    <!-- <script src="sources/jquery-3.2.1.min.js"></script>
+    <script src="sources/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="sources/bootstrap.min.css"> -->
+
+    <!-- APP SCRIPT AND CSS -->
+    <script src="scripts/calculator.js"></script>
+    <link rel="stylesheet" href="css/calculator.css">
+  </head>
+  <body>
+    <div id="calculator">
+      <div id="calc-header" class="text-center">
+        JS CALCULATOR
+      </div>
+      <div id="calc-screen">
+        <div id="data-field">
+        </div>
+        <div id="result-field">
+        </div>
+      </div>
+      <div id="calc-buttons">
+        <button id="clear" value="C">C</button>
+        <button id="sum" value="+">+</button>
+        <button id="subtract" value="-">-</button>
+        <button id="divide" value="/">/</button>
+        <button class="digit" value="7">7</button>
+        <button class="digit" value="8">8</button>
+        <button class="digit" value="9">9</button>
+        <button id="multiply" value="*">*</button>
+        <button class="digit" value="4">4</button>
+        <button class="digit" value="5">5</button>
+        <button class="digit" value="6">6</button>
+        <button id="dot" value=".">.</button>
+        <button class="digit" value="1">1</button>
+        <button class="digit" value="2">2</button>
+        <button class="digit" value="3">3</button>
+        <button id="ampersand" value="%">%</button>
+        <button class="digit" value="0" style="width:120px">0</button>
+        <button id="equals" value="=" style="width:125px">=</button>
+      </div>
+    </div>
+    <footer class="text-center"><em>Coded and designed by <a href="https://www.freecodecamp.org/bogdankf1">Bogdan Burukhin.</a></em></footer>
+    <script>
+      $(document).ready(function () {
+        var expression = "";
+        var result = 0;
+        var operatorClicked = false;
+        $(".digit").click(function () {
+          if($("#result-field").html() !== "") {
+            $("#result-field").html("");
+          }
+          expression += $(this).val();
+          document.getElementById("data-field").innerHTML = expression;
+          operatorClicked = false;
+        });
+        $("#clear").click(function () {
+          document.getElementById("data-field").innerHTML = "";
+          document.getElementById("result-field").innerHTML = "";
+          expression = "";
+        });
+        $("#equals").click(function () {
+          document.getElementById("result-field").innerHTML = eval(expression);
+          expression = $("#result-field").val();
+          operatorClicked = false;
+        });
+        $("#sum").click(function () {
+          if($("#result-field").html() !== "") {
+            expression = $("#result-field").html();
+            document.getElementById("data-field").innerHTML = expression;
+            document.getElementById("result-field").innerHTML = "";
+          }
+          if(!operatorClicked) {
+            expression += $("#sum").val();
+            document.getElementById("data-field").innerHTML = expression;
+            operatorClicked = true;
+          }
+        });
+        $("#subtract").click(function () {
+          if($("#result-field").html() !== "") {
+            expression = $("#result-field").html();
+            document.getElementById("data-field").innerHTML = expression;
+            document.getElementById("result-field").innerHTML = "";
+          }
+          if(!operatorClicked) {
+            expression += $("#subtract").val();
+            document.getElementById("data-field").innerHTML = expression;
+            operatorClicked = true;
+          }
+        });
+        $("#multiply").click(function () {
+          if($("#result-field").html() !== "") {
+            expression = $("#result-field").html();
+            document.getElementById("data-field").innerHTML = expression;
+            document.getElementById("result-field").innerHTML = "";
+          }
+          if(!operatorClicked) {
+            expression += $("#multiply").val();
+            document.getElementById("data-field").innerHTML = expression;
+            operatorClicked = true;
+          }
+        });
+        $("#divide").click(function () {
+          if($("#result-field").html() !== "") {
+            expression = $("#result-field").html();
+            document.getElementById("data-field").innerHTML = expression;
+            document.getElementById("result-field").innerHTML = "";
+          }
+          if(!operatorClicked) {
+            expression += $("#divide").val();
+            document.getElementById("data-field").innerHTML = expression;
+            operatorClicked = true;
+          }
+        });
+        $("#dot").click(function () {
+          if($("#result-field").html() !== "") {
+            expression = $("#result-field").html();
+            document.getElementById("data-field").innerHTML = expression;
+            document.getElementById("result-field").innerHTML = "";
+          }
+          if(!operatorClicked) {
+            expression += $("#dot").val();
+            document.getElementById("data-field").innerHTML = expression;
+            operatorClicked = true;
+          }
+        });
+        $("#ampersand").click(function () {
+          if($("#result-field").html() !== "") {
+            expression = $("#result-field").html();
+            document.getElementById("data-field").innerHTML = expression;
+            document.getElementById("result-field").innerHTML = "";
+          }
+          if(!operatorClicked) {
+            expression += $("#ampersand").val();
+            document.getElementById("data-field").innerHTML = expression;
+            operatorClicked = true;
+          }
+        });
+      });//end of ready
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+/*HEADER*/
+.header {
+  user-select: none;
+  /*background-color: white;*/
+  height: 30px;
+}
+
+/*GAME FIELD*/
+.game {
+  margin: 5px auto;
+  width: 390px;
+  background-color: grey;
+  border-radius: 10px;
+}
+.game-field {
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.row>.col-xs-4 {
+  padding: 20px 20px 20px 20px;
+  height: 133px;
+  width: 130px;
+  font-size: 70px;
+}
+.col-xs-4:nth-child(even) {
+  border-left: solid;
+  border-right: solid;
+  border-color: white;
+}
+.row:first-child {
+  border-bottom: solid;
+  border-color: white;
+}
+.row:last-child {
+  border-top: solid;
+  border-color: white;
+}
+.col-xs-4[selected="selected"] {
+  pointer-events: none;
+}
+
+/*INTRO*/
+#intro {
+  width: 390px;
+  height: 405px;
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+}
+#meeting {
+  padding-top: 160px;
+  user-select: none;
+}
+#choice {
+  padding-top: 100px;
+}
+.game-choice {
+  font-size: 50px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+#choice span:first-of-type {
+  padding-right: 20px;
+}
+#choice span:last-of-type {
+  padding-left: 20px;
+}
+.reset-btn {
+  margin: 0 auto;
+  width: 350px;
+  text-align: right;
+  font-size: 16px;
+}
+.reset-btn>span {
+  background-color: grey;
+  border-radius: 10px;
+  padding: 4px 4px 4px 4px;
+  color: white;
+  cursor: pointer;
+}
+.ban-click {
+  user-select: none;
+}
