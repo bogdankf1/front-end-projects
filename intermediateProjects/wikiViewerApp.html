@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wiki Viewer App</title>
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Lora|Merriweather" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!--Bootstrap  -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Awesome fonts Bootstrap -->
+    <script src="https://use.fontawesome.com/462f5790fa.js" defer></script>
+    <!-- CSS file -->
+    <link rel="stylesheet" href="css/wikiViewerApp-style.css">
+    <!-- Script file -->
+    <script src="scripts/wikiViewerApp-script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <p id="title">Wiki Viewer App</p>
+    </header>
+    <!-- Whole smartphone -->
+    <div id="smartphone">
+      <!-- Only screen -->
+      <div id="screen">
+        <!-- Screen Header -->
+        <div id="screen-header" class="text-center" hidden>
+          <b>Wiki Viewer</b>
+        </div>
+        <!-- Search buttons -->
+        <div id="buttons" hidden>
+          <button id="random-article" class="btn btn-block btn-success">Random article</button>
+          <button id="find-article" class="btn btn-block btn-primary">Search something</button>
+        </div>
+        <!-- App greeting -->
+        <div id="greeting" hidden>
+          <img src="logos/wiki.png" alt="Wikipedia logo">
+        </div>
+        <!-- Search form -->
+        <div id="search-form" hidden>
+          <form onsubmit="findArticle()">
+            <label for="search">Enter the request:</label>
+            <input type="text" id="search" placeholder="Wikipedia article" style="height:30px">
+            <button type="submit" id="search-button" class = "btn btn-inline"><i class="fa fa-arrow-right"></i></button>
+          </form>
+        </div>
+        <div id="wiki-list" hidden></div>
+        <!-- Footer -->
+        <div id="author" hidden>
+          <em>Coded and designed by <a href="http://vk.com/burukhin_bogdan" target="_blank">Bogdan Burukhin.</a></em>
+        </div>
+      </div>
+    </div>
+    <script>
+      // App script begin
+      $(document).ready(function () {
+        // $("#buttons").hide();
+        // $("#search-form").hide();
+        // $("#screen-header").hide();
+        // $("#author").hide();
+        // $("#greeting").hide();
+        setTimeout(function () {
+          $("#screen-header").fadeIn("slow");
+          $("#greeting").fadeIn("slow");
+          $("#author").fadeIn("slow");
+        }, 2000);
+        $("#greeting").click(function () {
+          $("#greeting").hide();
+          $("#buttons").fadeIn("slow");
+        });
+        $("#random-article").click(function () {
+          window.open('https://en.wikipedia.org/wiki/Special:Random');
+        });
+        $("#find-article").click(function () {
+          $("#buttons").hide();
+          $("#author").hide();
+          $("#search-form").fadeIn("slow");
+        });
+      });//end of Ready
+      // App script end
+    </script>
+  </body>
+</html>

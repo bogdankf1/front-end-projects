@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Rasa" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Bootstrap  -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+      #navigation {
+        background-color:#4497ce;
+        box-shadow:0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      }
+      .footer {
+        width:100%;
+        background-color:#4497ce;
+        box-shadow:0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      }
+      h3 {
+        font-size: 40px;
+        font-family: serif;
+        color: black;
+      }
+      #buttons {
+        padding-top: 20px;
+      }
+      #logo-pic {
+        width:50%;
+      }
+      body {
+        background-color: #62B1D0;
+      }
+      .content {
+        width: 75%;
+        background-color: #7277D8;
+        box-shadow:0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      }
+      #about {
+        padding-top: 75px;
+        width: 75%;
+        margin: 0 auto;
+      }
+      #projects {
+        width: 75%;
+        margin: 0 auto;
+      }
+      #contact {
+        width: 75%;
+        margin: 0 auto;
+      }
+      hr.style18 {
+        height: 30px;
+        border-style: solid;
+        border-color: #333;
+        border-width: 1px 0 0 0;
+        border-radius: 20px;
+      }
+      hr.style18:before {
+        display: block;
+        content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: #333;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+      }
+      hr.style1{
+      	border-top: 1px solid #333;
+      }
+      #form-container {
+        width:50%;
+        margin: 0 auto;
+      }
+      #links {
+        padding-bottom: 5px;
+      }
+      #gmail-button {
+        background: rgb(204,0,0);
+        background: -moz-linear-gradient(top, rgba(204,0,0,1) 0%, rgba(204,0,0,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(204,0,0,1) 0%,rgba(204,0,0,1) 100%);
+        background: linear-gradient(to bottom, rgba(204,0,0,1) 0%,rgba(204,0,0,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0000', endColorstr='#cc0000',GradientType=0 );
+      }
+      #freecodecamp-button {
+        background: #b4ddb4;
+        background: -moz-linear-gradient(top, #b4ddb4 0%, #83c783 17%, #52b152 33%, #008a00 67%, #005700 83%, #002400 100%);
+        background: -webkit-linear-gradient(top, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%);
+        background: linear-gradient(to bottom, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=0 );
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation fixed bar -->
+    <div class="navbar  navbar-fixed-top" id="navigation">
+      <div class="row">
+        <div class="col-xs-4">
+          <!-- Logo picture -->
+          <img class="img-responsive" id="logo-pic" src="https://s-media-cache-ak0.pinimg.com/originals/10/2a/1d/102a1d91eeada1c3af8bd06b6c780efe.png" alt="my logo">
+        </div>
+        <div class="col-xs-4">
+          <!-- Header -->
+          <h3 class="text-center">My portfolio</h3>
+        </div>
+        <div class="col-xs-4">
+          <!-- Buttons -->
+          <div id="buttons">
+            <!-- Button to "About" -->
+            <div class="col-xs-4">
+              <a href="#about"><button class="btn btn-block btn-primary">About</button></a>
+            </div>
+            <!-- Button to "Projects" -->
+            <div class="col-xs-4">
+              <a href="#projects"><button class="btn btn-block btn-primary">Projects</button></a>
+            </div>
+            <!-- Button to "Contacts" -->
+            <div class="col-xs-4">
+              <a href="#contacts"><button class="btn btn-block btn-primary">Contacts</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content  -->
+      <div class="content center-block">
+        <!-- About -->
+        <div id="about" class="text-center">
+            <h2>ABOUT ME</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate erat ut enim pharetra consectetur.
+              Donec pretium accumsan gravida. Fusce scelerisque justo id massa facilisis, vel volutpat eros sagittis.
+              Quisque placerat tortor ut porttitor elementum. Pellentesque quis ipsum non urna pulvinar accumsan non at orci.
+              Sed bibendum dui non tortor mollis, in pellentesque neque ultrices. Nunc nec efficitur diam.
+              Donec gravida augue sed metus luctus, ac aliquet purus commodo. Aliquam bibendum ante id egestas accumsan.
+              Nulla metus nibh, tristique eget tellus at, facilisis dignissim metus. Mauris aliquam tempus diam id sodales.
+              Praesent tincidunt vel justo sed fringilla. Curabitur lobortis, sem consectetur congue porttitor, leo elit fringilla nulla,
+              a pharetra risus orci non ligula. Fusce dignissim ac velit quis finibus. Praesent interdum, sapien eu lobortis posuere,
+              massa elit dignissim ipsum, nec faucibus elit sapien ac diam.
+            </p>
+        </div>
+        <!-- HR beetwen divs -->
+        <br>
+        <hr class="style18">
+        <!-- Projects -->
+        <div id="projects" class="text-center">
+          <h2>MY PROJECTS</h2>
+          <p>
+            Etiam magna augue, maximus sit amet nisi quis, posuere gravida metus. Proin dui purus, imperdiet sit amet purus a,
+            consectetur mollis felis. Quisque feugiat lacus at eros euismod luctus. Etiam in dictum nisi. Vestibulum efficitur erat in
+            orci commodo rutrum. Vivamus enim dolor, scelerisque quis venenatis non, placerat et ante. Maecenas sit amet posuere velit.
+            Vivamus faucibus sit amet risus ac cursus. Phasellus condimentum sollicitudin metus, vitae porttitor nunc aliquam ac.
+            Nam ornare arcu vitae felis blandit, quis accumsan nulla facilisis. Morbi iaculis metus magna, eu lacinia arcu gravida vel.
+            Vestibulum ornare placerat velit, non suscipit erat eleifend sit amet. Mauris eu tristique lorem. Nam maximus nisi vitae lorem elementum
+            facilisis. Vestibulum sed malesuada justo, quis volutpat nibh. Morbi in blandit nisl.
+          </p>
+          <div class="row">
+            <div class="col-xs-3">
+              <img src="logos/1.png" alt="">
+            </div>
+            <div class="col-xs-3">
+              <img src="logos/2.png" alt="">
+            </div>
+            <div class="col-xs-3">
+              <img src="logos/3.png" alt="">
+            </div>
+            <div class="col-xs-3">
+              <img src="logos/4.png" alt="">
+            </div>
+          </div>
+        </div>
+        <!-- HR beetwen divs -->
+        <br>
+        <hr class="style18">
+        <!-- Contacts -->
+        <div id="contacts" class="text-center">
+          <h2>CONTACT TO ME</h2>
+          <p>
+            Morbi laoreet eu lorem nec elementum. Sed vitae ante quis enim blandit ultricies in nec tellus. Maecenas mattis, nulla eu interdum tincidunt,
+            turpis justo sagittis enim, quis posuere arcu turpis sit amet erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus. Sed tempus feugiat mi, eget pretium urna cursus eu. Fusce maximus, lacus eu placerat dictum, risus turpis viverra massa,
+            nec gravida metus diam at urna. Etiam consequat lectus quis euismod condimentum. In hac habitasse platea dictumst. Sed tincidunt elit eget
+            dolor tempus, ut semper eros vehicula. Aliquam imperdiet posuere lacus non lobortis. Phasellus ut mauris pretium, bibendum nisi id, vestibulum
+            ligula. Cras condimentum tincidunt felis in mattis. Nulla facilisi. Praesent neque orci, commodo ac elit id, placerat consectetur ipsum.
+          </p>
+          <h4>If you want to connect with me, please fill the form below</h4>
+          <!-- Form to contact with author -->
+          <form class="contact-form" action="portfolio.html" method="post" onsubmit="">
+            <div id="form-container">
+              <label for="input-email"></label>
+              <input type="email" class="form-control" id="input-email" placeholder="Your email">
+              <label for="input-name"></label>
+              <input type="text" class="form-control" id="input-name" placeholder="Your name">
+              <label for="input-password"></label>
+              <input type="text" class="form-control" id="input-password" placeholder="Telephone number">
+              <label for="input-message"></label>
+              <input type="text" class="form-control" id="input-message" placeholder="Write your message">
+              <label for="input-submit"></label>
+              <input type="submit" id="input-submit" class="btn btn-info btn-block" value="Send">
+            </div>
+          </form>
+        </div>
+        <!-- HR beetwen divs -->
+        <br>
+        <hr class="style18">
+        <div id="links" class="center-block">
+          <h4 class="text-center">Around the web</h4>
+          <div class="row">
+            <div class="col-xs-4">
+              <a href="http://gmail.com"><button class="btn btn-block btn-primary" id="gmail-button">Gmail</button></a>
+            </div>
+            <div class="col-xs-4">
+              <a href="http://facebook.com"><button class="btn btn-block btn-primary" id="facebook-button">Facebook</button></a>
+            </div>
+            <div class="col-xs-4">
+              <a href="http://freecodecamp.com"><button class="btn btn-block btn-primary" id="freecodecamp-button">freeCodeCamp</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="footer">
+        <br>
+        <hr class="style1">
+            <!-- Author -->
+            <div id="author">
+              <h5 class="text-center" id="author-header"><em>Designed and coded by <a href="https://www.freecodecamp.org/fcc4d13f766">Bogdan Burukhin.</a></em></h5>
+            </div>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random quote machine</title>
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--Bootstrap  -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Awesome fonts Bootstrap -->
+    <script src="https://use.fontawesome.com/462f5790fa.js" defer></script>
+    <!-- CSS file -->
+
+    <!-- Script file -->
+
+    <style>
+      body {
+        background-color: grey;
+      }
+      #container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 100px;
+        background-image:url("http://bgfons.com/uploads/paper/paper_texture602.jpg");
+        background-size: cover;
+      }
+      .quote-container {
+        width: 600px;
+        height: 300px;
+        margin: 0 auto;
+        background-color: #FFBE73;
+        border-radius: 10px;
+        opacity: 0.75;
+      }
+      #quote {
+        height: 150px;
+        font-size: 20px;
+        font-family: 'Droid Serif', serif;
+      }
+      #author {
+        height: 50px;
+        font-size:16px;
+        font-family: serif;
+        text-align: center;
+        font-family: 'Droid Serif', serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+      #post-quote {
+        height: 50px;
+        width: 100%;
+        padding-right: 15px;
+        font-family: 'Droid Serif', serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+      #around-web {
+        padding-left: 10px;
+        width: 100%;
+        height: 50px;
+        text-align: left;
+      }
+      #tweet-quote #vk-quote #facebook-quote #telegram-quote {
+        width: 100%;
+        border-radius: 50%;
+      }
+      #footer {
+        width: 100%;
+        height: 15px;
+        text-align: center;
+        color: black;
+        text-shadow: 1px 1px 2px grey, 0 0 1em grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="quote-container">
+        <div id="quote" class = "text-center">
+
+        </div>
+        <div id="author">
+
+        </div>
+        <div id="post-quote">
+          <button id="post-button" class="btn btn-inline pull-right" onclick="postQuote()">Post quote</button>
+        </div>
+        <div id="around-web">
+          <div class="center-block">
+            <a href="http://twitter.com" target="_blank"><button class="btn" id="tweet-quote"><i class="fa fa-twitter"></i></button></a>
+            <a href="http://facebook.com" target="_blank"><button class="btn" id="facebook-quote"><i class="fa fa-facebook"></i></button></a>
+            <a href="http://vk.com" target="_blank"><button class="btn" id="vk-quote"><i class="fa fa-vk"></i></button></a>
+            <a href="http://telegram.com" target="_blank"><button class="btn" id="telegram-quote"><i class="fa fa-telegram"></i></button></a>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <h5><em>Designed and coded by Bogdan Burukhin.</em></h5>
+      </div>
+    </div>
+  <script>
+      $(document).ready(function () {
+        $("#around-web").show();
+      });
+    </script>
+    <script>
+      document.getElementById("post-button").addEventListener("click", function () {
+          location.reload();
+      });
+    </script>
+    <script type="text/javascript">
+  		function parseQuote(response) {
+  			document.getElementById("quote").innerHTML = response.quoteText;
+  			document.getElementById("author").innerHTML = response.quoteAuthor;
+  		}
+	  </script>
+    <script type="text/javascript" src="https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=parseQuote"></script>
+    <!-- EDITED -->
+    <!-- <script>
+      $("#post-button").click(function (event) {
+        event.preventDefault();
+        getQuote();
+      });
+      function getQuote() {
+        var urlString = "https://api.forismatic.com/api/1.0/?method=getQuote";
+        $.ajax({
+          type: "GET",
+          url:urlString,
+          dataType: "json",
+          success: function (response) {
+            var responseObject = JSON.parse(response);
+            document.getElementById("quote").innerHTML = response.quoteText;
+      			document.getElementById("author").innerHTML = response.quoteAuthor;
+          }
+        });
+      }
+    </script> -->
+    <!-- END EDITED -->
+    <!-- <script>
+      $(document).ready(function () {
+        $("#post-button").on("click", function () {
+          $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=json", function (response) {
+            var responseObject = JSON.parse(response);
+            document.getElementById("quote").innerHTML = response.quoteText;
+      			document.getElementById("author").innerHTML = response.quoteAuthor;
+          });
+        });
+      });
+    </script> -->
+    <!-- <script>
+      function postQuote() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if(this.readyState == 4 && this.status == 200) {
+            var responseObject = JSON.parse(this);
+            document.getElementById("quote").innerHTML = responseObject.quoteText;
+      			document.getElementById("author").innerHTML = responseObject.quoteAuthor;
+          }
+        };
+        xhttp.open("GET", "http://crossorigin.me/https://api.forismatic.com/api/1.0/?method=getQuote&format=json", true);
+        xhttp.send();
+      }
+    </script> -->
+  </body>
+</html>

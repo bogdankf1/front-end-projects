@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery UI Sample</title>
+    <!-- Google Fonts  -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- jQuery UI -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> -->
+    <!--Bootstrap  -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Awesome fonts Bootstrap -->
+    <script src="https://use.fontawesome.com/462f5790fa.js" defer></script>
+    <!-- CSS file -->
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="jquery-ui.min.js"></script>
+    <script src="airport.js" defer></script>
+    <style>
+      #e {
+        height: 200px;
+        width: 100%;
+      }
+      #ex {
+        width: 600px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: #000;
+        margin-top: 70px
+      }
+      #cube {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: red;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="e">
+      <div id="ex" title="div ex">
+
+      </div>
+
+    </div>
+    <div id="some-div">
+      <p>Move this!</p>
+    </div>
+    <div id="cube">
+      CUBE
+    </div>
+    <div id="tabbedPanels">
+      <ul>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#order">Order</a></li>
+      </ul>
+      <div id="details">
+        1212
+      </div>
+      <div id="reviews">
+        434344
+      </div>
+      <div id="order">
+        65656
+      </div>
+    </div>
+    <div id="accordion">
+      <h3>First accordion</h3>
+      <div></div>
+      <h3>Second accordion</h3>
+      <div></div>
+      <h3>Third accordion</h3>
+      <div></div>
+    </div>
+    <div>
+      <ul id="mainMenu">
+        <li><a href="">eqweqwe</a></li>
+        <li><a href="">qefdsfsdf</a></li>
+        <li><a href="">weewwewewewe</a>
+          <ul>
+            <li><a href="">11</a></li>
+            <li><a href="">22</a></li>
+            <li><a href="">33</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <label for="birthdate">Enter your birthday:</label>
+    <input type="text" id="birthdate">
+    <br>
+    <select name="meal" id="meal">
+      <option value="">Fresh</option>
+      <option value="">Soft</option>
+      <option value="">Grunge</option>
+      <option value="">Optional</option>
+    </select>
+    <br>
+    <label for="airport" class="label">Enter the airport</label>
+    <input type="text" id="airport" name="airport">
+    <script>
+      $(document).ready(function () {
+        $("#some-div").dialog({
+          draggable:true,
+          resizable:true,
+          hide:'explode',
+          buttons:{
+            "Apply":function () {
+
+            },
+            "Cancel":function () {
+              $(this).dialog("close");
+            }
+          }
+        });//end of dialog
+        $("#ex").tooltip({
+          track:true,
+          hide:"explode",
+          content:'<img src="1.jpg" width="100%">'
+        });//end of tooltip
+        $('#ex').click(function () {
+          // $(this).fadeOut('slow');
+          $(this).effect('bounce');
+        });//end of click
+        $("#tabbedPanels").tabs({
+          // show:"fadeIn",
+          // hide:"fadeOut",
+          // event:"mouseover"
+        });//end of tabs
+        $("#accordion").accordion({
+          animate:true
+        });//end of accordion
+        $("#mainMenu").menu({
+
+        });//end of menu
+        $("#birthdate").datepicker({
+          numberOfMonths:1,
+          changeMonth: false
+        });//end of datepicker
+        $("#meal").selectmenu({
+          width:100,
+          change:function () {
+            //some action, if option was selected
+          }
+        });//end of selectmenu
+        $("#airport").autocomplete({
+          source: "airport.js"
+        });//end of autocomplete
+        $("#ex").draggable({
+          axis:"x", /* x or y */
+          disabled: false,
+          grid:[50, 100],
+          opacity:0.5
+        });// end of draggable
+        //
+        $("#cube").draggable({
+          revert:"invalid",
+        });//end of draggable
+        $("#ex").droppable({
+          activeClass:"highlight",
+          drop:function (event, ui) {
+            ui.helper.hide("explode");
+          }
+        });//end of droppable
+        //
+        $("#mainMenu").sortable({
+
+        });
+      });//end of ready
+    </script>
+  </body>
+</html>
