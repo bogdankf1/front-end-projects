@@ -5,12 +5,14 @@
     <title>First react app</title>
   </head>
   <body>
-    <div id="app">
-
-    </div>
+    <div id="app"></div>
+    <div id="component"></div>
+    <div id="text-zone"></div>
     <script src="sources/react/build/react.js"></script>
     <script src="sources/react/build/react-dom.js"></script>
     <script>
+
+      //Hello world
       ReactDOM.render(
         React.DOM.h1(
           {id:"my-heading"},
@@ -19,7 +21,80 @@
           " World!"
         ),
         document.getElementById("app")
-      );
+      );//end of Hello World
+
+      //Component with meeting and my name
+      var MyComponent = React.createClass({
+        propTypes: {
+          name: React.PropTypes.string.isRequired,
+        },
+        getDefaultProps: function () {
+          return {
+            /* */
+          };
+        },
+        render: function () {
+          return React.DOM.span(null, "Hello, I am " + this.props.name);
+        }
+      });// end of MyComponent
+
+      //Output this component
+      ReactDOM.render(
+        React.createElement(MyComponent, {
+          name: "Bogdan",
+        }),
+        document.getElementById("component")
+      );//end of MyComponent render
+
+      //textarea Component
+      var TextAreaCounter = React.createClass({
+
+        //Initializing properties of component types
+        propTypes: {
+          text:React.PropTypes.string,
+        },
+
+        //setting default properties
+        getDefaultProps: function () {
+          return {
+            text :"",
+          }
+        },
+
+        //Initialing state of component
+        getInitialState: function () {
+          return {
+            text: this.props.text,
+          };
+        },
+
+        //Detecting the change of text in textarea
+        _textChange: function(ev) {
+          this.setState({
+            text: ev.target.value,
+          });
+        },
+
+        //Rendering full component
+        render: function () {
+          return React.DOM.div(null,
+            React.DOM.textarea({
+              value: this.state.text,
+              onChange: this._textChange,
+            }),
+            React.DOM.h3(null, this.state.text.length)
+          );
+        }
+      });//end of TextAreaCounter
+
+      //Render TextAreaCounter
+      ReactDOM.render(
+        React.createElement(TextAreaCounter, {
+          text: "",
+        }),
+        document.getElementById("text-zone")
+      );//end of TextAreaCounter
+
     </script>
   </body>
 </html>
