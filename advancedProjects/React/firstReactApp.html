@@ -38,6 +38,42 @@
         }
       });// end of MyComponent
 
+      //mixinLog
+      var mixinLog = {
+        _log: function(methodName, args) {
+          console.log(this.name + '::' + methodName, args);
+        },
+
+        //Выполняется до того, как метод render()
+        //вашего компонента будет вызван еще раз (в результате изме-
+        //нений свойств или состояния).
+        componentWillUpdate: function() {
+          this._log('componentWillUpdate', arguments);
+        },
+
+        //Выполняется после завершения работы метода render()
+        //и применения новых изменений в отношении исходной DOM-модели.
+        componentDidUpdate: function() {
+          this._log('componentDidUpdate', arguments);
+        },
+
+        //Выполняется перед вставкой узла в DOM-модель.
+        componentWillMount: function() {
+          this._log('componentWillMount', arguments);
+        },
+
+        //Выполняется после вставки узла в DOM-модель.
+        componentDidMount: function() {
+          this._log('componentDidMount', arguments);
+        },
+
+        //Выполняется непосредственно перед тем, как компонент удаляется из DOM-модели.
+        componentWillUnmount: function() {
+          this._log('componentWillUnmount', arguments);
+        }
+      }
+      //end of mixinLog
+
       //Output this component
       ReactDOM.render(
         React.createElement(MyComponent, {
@@ -48,6 +84,11 @@
 
       //textarea Component
       var TextAreaCounter = React.createClass({
+
+        name:"TextAreaCounter",
+
+        //Include the mixins with life-cycle of component
+        mixins: [mixinLog],
 
         //Initializing properties of component types
         propTypes: {
@@ -77,15 +118,34 @@
 
         //Rendering full component
         render: function () {
+          var counter = null;
+          if(this.state.text.length > 0) {
+            counter = React.DOM.h3(null,
+              React.createElement(Counter, {
+                count: this.state.text.length,
+              })
+            );
+          }
           return React.DOM.div(null,
             React.DOM.textarea({
               value: this.state.text,
               onChange: this._textChange,
             }),
-            React.DOM.h3(null, this.state.text.length)
+            counter
           );
         }
       });//end of TextAreaCounter
+
+      var Counter = React.createClass({
+        name: "Counter",
+        mixins: [mixinLog],
+        propTypes: {
+          count: React.PropTypes.number.isRequired,
+        },
+        render: function () {
+          return React.DOM.span(null, this.props.count);
+        }
+      });//end of Counter
 
       //Render TextAreaCounter
       ReactDOM.render(
