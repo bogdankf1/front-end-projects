@@ -225,10 +225,7 @@
       });//end of Excel
 
       ReactDOM.render(
-        React.createElement(Excel, {
-          headers: headers,
-          initialData: data,
-        }),
+        <Excel headers={headers} initialData={data}></Excel>,
         document.getElementById("app")
       );//end of ReactDOM
 
