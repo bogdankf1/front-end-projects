@@ -18,16 +18,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//array of default news
 var my_news = [{
   author: 'Саша	Печкин',
-  text: 'В	четверг,	четвертого	числа...'
+  text: 'В	четчерг,	четвертого	числа...',
+  bigText: 'в	четыре	с	четвертью	часа	четыре	чёрненьких	чумазеньких	чертёнка	чертили чёрными	чернилами	чертёж.'
 }, {
   author: 'Просто	Вася',
-  text: 'Считаю,	что	$	должен	стоить	35	рублей!'
+  text: 'Считаю,	что	$	должен	стоить	35	рублей!',
+  bigText: 'А	евро	42!'
 }, {
   author: 'Гость',
-  text: 'Бесплатно.	Скачать.	Лучший	сайт	-	http://localhost:3000'
+  text: 'Бесплатно.	Скачать.	Лучший	сайт	-	http://localhost:3000',
+  bigText: 'На	самом	деле	платно,	просто	нужно	прочитать	очень	длинное	лицензионное соглашение'
 }];
+
+//news item with text and author
 
 var Article = function (_React$Component) {
   _inherits(Article, _React$Component);
@@ -42,7 +48,9 @@ var Article = function (_React$Component) {
     key: 'render',
     value: function render() {
       var author = this.props.data.author,
-          text = this.props.data.text;
+          text = this.props.data.text,
+          bigText = this.props.data.bigText;
+
       return _react2.default.createElement(
         'div',
         { className: 'Article' },
@@ -56,6 +64,11 @@ var Article = function (_React$Component) {
           'p',
           { className: 'news-text' },
           text
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'news-bigText' },
+          bigText
         )
       );
     }
@@ -63,6 +76,9 @@ var Article = function (_React$Component) {
 
   return Article;
 }(_react2.default.Component);
+
+//block of Article components
+
 
 var News = function (_React$Component2) {
   _inherits(News, _React$Component2);
@@ -105,6 +121,9 @@ var News = function (_React$Component2) {
   return News;
 }(_react2.default.Component);
 
+//block for case, when there are any news
+
+
 var Comments = function (_React$Component3) {
   _inherits(Comments, _React$Component3);
 
@@ -127,6 +146,9 @@ var Comments = function (_React$Component3) {
 
   return Comments;
 }(_react2.default.Component);
+
+//full app block
+
 
 var App = function (_React$Component4) {
   _inherits(App, _React$Component4);
@@ -152,5 +174,8 @@ var App = function (_React$Component4) {
 
   return App;
 }(_react2.default.Component);
+
+//render for full app
+
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
