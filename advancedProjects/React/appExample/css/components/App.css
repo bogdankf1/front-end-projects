@@ -1,0 +1,69 @@
+/*App component*/
+.App h3 {
+  padding: 0 0 0 10px;
+}
+.none {
+  display: none !important;
+}
+
+/*Article component*/
+.Article {
+  border: 1px soild;
+  width: 400px;
+  border-radius: 20px;
+  background-color: white;
+}
+.news-author {
+  padding: 5px 0 0 5px;
+  font-size: 20px;
+  font-style: italic;
+  text-decoration: underline;
+}
+.news-text, .news-bigText {
+  padding: 0 0 0 10px;
+}
+.news-count {
+  padding: 0 0 0 5px;
+}
+
+/*Comments component*/
+.Comments {
+  color: red;
+}
+
+/*News component*/
+.News {
+  border: 3px solid;
+  width: 400px;
+  border-radius: 10px;
+  background-color: grey;
+}
+
+/*Add component*/
+.Add	{
+		margin:	0	5px	5px	0;
+		width:	210px;
+		border:	1px	dashed	rgba(0,	89,	181,	0.82);
+		padding:	5px;
+}
+.add-author,	.add-text,	.add-btn,	.add-checkrule	{
+		display:	block;
+		margin:	0	0	5px	0;
+		padding:	5px;
+		width:	94%;
+		border:	1px	solid	rgba(0,	89,	181,	0.82);
+}
+.add-checkrule	{
+		border:	none;
+		font-size:	12px;
+}
+.add-btn	{
+		box-sizing:	content-box;
+		color:	#FFF;
+		text-transform:	uppercase;
+		background:	#007DDC;
+}
+.add-btn:disabled	{
+		background:	#CCC;
+		color:	#999;
+}
