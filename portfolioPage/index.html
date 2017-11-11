@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <title>Portfolio</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
@@ -12,75 +12,78 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- Bootstrap Awesome fonts -->
     <script src="https://use.fontawesome.com/462f5790fa.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="meeting">
       <div class="nav">
-        <a href="#" class="button">About me</a>
-        <a href="#" class="button">Projects</a>
-        <a href="#" class="button">Contact</a>
+        <a href="#about" class="button">About me</a>
+        <a href="#projects" class="button">Projects</a>
+        <a href="#footer" class="button">Contact</a>
       </div>
       <div class="meeting-info">
         <h1>Welcome to my portfolio!</h1>
       </div>
       <div class="transition first-transition">
-        <h3>↓</h3>
+        <a href="#about"><h3>↓</h3></a>
       </div>
     </div>
-    <div class="main-content">
-      <div class="about">
+    <div class="about-content">
+      <div class="about" id="about">
         <h2>About me</h2>
         <p>Hello! My name is Bogdan. I am student of the National Technical
-        University "Kharkiv Polytechnic Institute. I am interesting in Web Development.
+        University "Kharkiv Polytechnic Institute" in Ukraine. I am interesting in Web Development.
         At this page you can see some of my projects. If you want to connect with me,
-        please leave the mail in form. You will find it in the bottom of page."</p>
+        please leave the mail in form. You will find it in the bottom of page.</p>
         <div class="transition">
-          <h3>↓</h3>
+          <a href="#projects"><h3>↓</h3></a>
         </div>
-      </div>
-
-    </div>
-    <div class="projects">
-      <h2>My projects</h2>
-      <div class="boxes">
-        <div>
-          1
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          2
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          3
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          4
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          5
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          6
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          7
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-        <div>
-          8
-          <p class="more"><a href="#" class="button full-view-btn">View full</a></p>
-        </div>
-      </div>
-      <div class="transition first-transition">
-        <h3>↓</h3>
       </div>
     </div>
-    <div class="footer">
+    <div class="projects" id="projects">
+      <div class="projects-container">
+        <h2>My projects</h2>
+        <div class="boxes">
+          <div>
+            <img src="images/logos-examples/1.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/2.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/3.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/4.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/5.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/6.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/7.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+          <div>
+            <img src="images/logos-examples/8.svg" alt="">
+            <a href="#" class="button full-view-btn">View full</a>
+          </div>
+        </div>
+        <div class="transition first-transition">
+          <a href="#footer"><h3>↓</h3></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer" id="footer">
       <div class="copyright">
         <p>© Burukhin Bogdan, 2017. All rights reserved.</p>
         <div class="social">
@@ -107,5 +110,6 @@
       </div>
     </div>
     <!-- <script src="js/main.js"></script> -->
+    <script src="js/scroll.js"></script>
   </body>
 </html>

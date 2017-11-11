@@ -1,0 +1,35 @@
+/*transition beetween blocks*/
+
+/*changing background-color and color with mouseover*/
+.transition {
+ text-align: center;
+ margin: 0 auto;
+ width: 5em;
+ border: 1px solid;
+ border-radius: 50%;
+ position: absolute;
+ bottom: 0px;
+ left: 48%;
+}
+.transition:hover {
+ background-color: black;
+ opacity: 0.3;
+ color: white;
+ cursor: pointer;
+}
+.transition a {
+ text-decoration: none;
+ color: inherit;
+}
+/*custom transition for first block, depending on its color*/
+.first-transition {
+ border-color: white;
+ color: white;
+}
+.first-transition:hover {
+ background-color: white;
+ opacity: 0.5;
+ color: black;
+ border:color:black;
+ cursor: pointer;
+}

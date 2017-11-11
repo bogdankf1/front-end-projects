@@ -1,0 +1,16 @@
+
+@media (max-width:500px) {
+  .nav {
+    flex-flow: column;
+  }
+  .nav a {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  .boxes {
+    flex-flow:row wrap;
+  }
+  .about-content p, .about-content h2{
+    font-size: 100%;
+  }
+}
