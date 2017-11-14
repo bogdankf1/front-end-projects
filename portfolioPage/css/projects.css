@@ -20,6 +20,29 @@
   height: 100vh;
   background-color: rgba(112, 95, 67, 0.7);
 }
+/*Animation for scale of projects icons*/
+/*scale is changing from 1 to 1.25*/
+@keyframes scaleUp {
+	from {
+    transform: scale(1);
+  } to {
+    transform: scale(1.25);
+  }
+}
+/*scale is returning to real size*/
+@keyframes scaleDown {
+	from {
+    transform: scale(1.25);
+  } to {
+    transform: scale(1);
+  }
+}
+/*Usage of animation on hover on project boxes*/
+.boxes div:hover {
+  animation-name: scaleUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
 /*make container with all projects flex*/
 .boxes {
   display: flex;
@@ -28,16 +51,56 @@
 }
 /*set the width of each box*/
 .boxes div {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
   width: 20%;
+  height: 180px;
   margin: 2% 2% 1% 2%;
   border-radius: 5px;
-  padding: 10px 10px 0 10px;
   background-color: rgba(255,255,255,0.5);
-}
-.full-view-btn {
-  background-color: rgba(99, 142, 187, 0.5);
+  animation-name: scaleDown;
+  animation-duration: 0.5s;
 }
 
+/*Background image of each project*/
+.box-1 {
+  background-image: url(../images/logos-examples/1.png);
+  background-size: cover;
+}
+.box-2 {
+  background-image: url(../images/logos-examples/2.png);
+  background-size: cover;
+}
+.box-3 {
+  background-image: url(../images/logos-examples/3.png);
+  background-size: contain;
+}
+.box-4 {
+  background-image: url(../images/logos-examples/4.png);
+  background-size: cover;
+}
+/*.box-5 {
+
+}
+.box-6 {
+
+}
+.box-7 {
+
+}
+.box-8 {
+
+}*/
+.full-view-btn {
+  align-self: stretch;
+  margin-top: auto;
+  background-color: rgba(80, 84, 89, 0.5);
+  color: white;
+}
+.full-view-btn:hover {
+  /*transform: scale(1.25);*/
+}
 .boxes img {
   width: 50%;
 }

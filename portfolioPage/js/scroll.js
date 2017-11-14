@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".transition a, .nav a").on("click", function (event) {
+  $(".transition a, .nav a, .go-top").on("click", function (event) {
     event.preventDefault();
     var id  = $(this).attr('href'),
         top = $(id).offset().top;
