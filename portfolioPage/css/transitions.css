@@ -1,35 +1,66 @@
 /*transition beetween blocks*/
-
-/*changing background-color and color with mouseover*/
 .transition {
- text-align: center;
- margin: 0 auto;
- width: 5em;
- border: 1px solid;
- border-radius: 50%;
- position: absolute;
- bottom: 0px;
- left: 47%;
+  text-align: center;
+  width: 100%;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  /*animation: transitionFadeOut 1s forwards;*/
 }
-.transition:hover {
- background-color: black;
- opacity: 0.3;
- color: white;
- cursor: pointer;
-}
+
+/*changing arrow in transition block*/
 .transition a {
  text-decoration: none;
  color: inherit;
 }
-/*custom transition for first block, depending on its color*/
-.first-transition {
- border-color: white;
- color: white;
+
+/*animation with smooth fadeIn for bottom transition line*/
+@-webkit-keyframes transitionFadeIn {
+  from {
+
+  } to {
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+  }
 }
-.first-transition:hover {
- background-color: white;
- opacity: 0.5;
- color: black;
- border:color:black;
- cursor: pointer;
+@-moz-keyframes transitionFadeIn {
+  from {
+
+  } to {
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+  }
+}
+@keyframes transitionFadeIn {
+  from {
+
+  } to {
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+  }
+}
+
+/*@-webkit-keyframes transitionFadeOut {
+  from {opacity: 0.5;}
+  to {background-color: rgba(255, 255, 255, 0);}
+}
+@-moz-keyframes transitionFadeOut {
+  from {opacity: 0.5;}
+  to {background-color: rgba(255, 255, 255, 0);}
+}
+@keyframes transitionFadeOut {
+  from {opacity: 0.5;}
+  to {background-color: rgba(255, 255, 255, 0);}
+}*/
+/*usage of animation*/
+
+/*Usage of animation fadeIn on bottom transition line*/
+.transition:hover {
+  -webkit-animation: transitionFadeIn 1.5s forwards;
+  -moz-animation: transitionFadeIn 1.5s forwards;
+  animation: transitionFadeIn 1.5s forwards;
+  cursor: pointer;
 }

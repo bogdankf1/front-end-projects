@@ -7,21 +7,24 @@
   height: 100vh;
   background-image: url(../images/city.jpg);
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment:fixed;
   position:relative;
   padding-bottom:50px;
 }
+
  /*make flex navigation bar*/
 .nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
+
  /*set margin and width for all buttons in nav bar*/
 .nav a {
   margin: 1% 1% 0 1%;
   width: 31%;
 }
+
 /* Title with meeting like "welcome to portfolio" */
 /*centering the text and making some margins*/
 .meeting-info {
