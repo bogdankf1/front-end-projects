@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
@@ -15,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="meeting" id="meeting">
+    <div class="meeting" id="meeting" href="#about">
       <div class="nav">
         <a href="#about" class="button">About me</a>
         <a href="#projects" class="button">Projects</a>
@@ -28,7 +29,7 @@
         <a href="#about"><h4>↓</h4></a>
       </div>
     </div>
-    <div class="about-content">
+    <div class="about-content" href="projects">
       <a class="go-top" href="#meeting"><div class="top"></div></a>
       <div class="about" id="about">
         <h2>About me</h2>
@@ -41,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="projects" id="projects">
+    <div class="projects" id="projects" href="footer">
       <a class="go-top" href="#meeting"><div class="top"></div></a>
       <div class="projects-container">
         <h2>My projects</h2>
@@ -53,7 +54,6 @@
             <a href="https://codepen.io/bogdan_kf/full/veBRNx" target="_blank" class="button full-view-btn">View full</a>
           </div>
           <div class="box-3">
-            <!-- <img src="images/logos-examples/3.png" alt=""> -->
             <a href="https://codepen.io/bogdan_kf/full/rGjmxJ" target="_blank" class="button full-view-btn">View full</a>
           </div>
           <div class="box-4">
@@ -99,7 +99,7 @@
         <form class="container">
           <label for="exampleEmailInput">If you have any questions, leave your mail and I will reply:</label>
           <input type="email" placeholder="example@mailbox.com" id="exampleEmailInput">
-          <input class="button-primary" type="submit" value="OK">
+          <input class="button-primary ok-btn" type="submit" value="OK">
         </form>
       </div>
     </div>
