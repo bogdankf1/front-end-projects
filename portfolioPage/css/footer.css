@@ -78,7 +78,9 @@
 /*Arrange icons on 5px beetween each other*/
 /*Usage of set default color animation on social icon*/
 .social a{
+  font-size: 150%;
   margin: 5px;
+  /*padding-right: 2%;*/
   color:white;
   animation: defaultIcon 1s forwards;
 }

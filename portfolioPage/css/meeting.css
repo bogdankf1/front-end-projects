@@ -28,6 +28,8 @@
 /* Title with meeting like "welcome to portfolio" */
 /*centering the text and making some margins*/
 .meeting-info {
-  margin: 15em auto;
+  /*margin: 15em auto;*/
+  margin: 0 auto;
+  margin-top: 18%;
   text-align: center;
 }
