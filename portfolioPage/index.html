@@ -14,9 +14,11 @@
     <script src="https://use.fontawesome.com/462f5790fa.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="icon" type="image/png" href="images/icon.png">
   </head>
   <body>
-    <div class="meeting" id="meeting" href="#about">
+    <div class="meeting" id="meeting">
       <div class="nav">
         <a href="#about" class="button">About me</a>
         <a href="#projects" class="button">Projects</a>
@@ -29,20 +31,20 @@
         <a href="#about"><h4>↓</h4></a>
       </div>
     </div>
-    <div class="about-content" href="projects">
+    <div class="about-content">
       <a class="go-top" href="#meeting"><div class="top"></div></a>
       <div class="about" id="about">
         <h2>About me</h2>
-        <p>Hello! My name is Bogdan. I am student of the National Technical
-        University "Kharkiv Polytechnic Institute" in Ukraine. I am interesting in Web Development.
-        At this page you can see some of my projects. If you want to connect with me,
-        please leave the mail in form. You can find it in the bottom of page.</p>
+        <p>Hello! My name is Bogdan. I am a student of the National Technical
+        University "Kharkiv Polytechnic Institute" in Ukraine. I am interested in Web Development.
+        At this page you can see some of my projects. If you want to contact me,
+        please leave the mail in form. Use the form on the bottom of the page.</p>
         <div class="transition">
           <a href="#projects"><h4>↓</h4></a>
         </div>
       </div>
     </div>
-    <div class="projects" id="projects" href="footer">
+    <div class="projects" id="projects">
       <a class="go-top" href="#meeting"><div class="top"></div></a>
       <div class="projects-container">
         <h2>My projects</h2>
@@ -98,8 +100,11 @@
       <div class="signup">
         <form class="container">
           <label for="exampleEmailInput">If you have any questions, leave here your mail address and I will reply:</label>
-          <input type="email" placeholder="example@mailbox.com" id="exampleEmailInput">
-          <input class="button-primary ok-btn" type="submit" value="OK">
+          <input type="email" placeholder="example@mailbox.com" id="emailInput">
+          <!-- <input class="button-primary ok-btn" type="submit" value="OK"> -->
+          <label for="exampleEmailInput">Write your question:</label>
+          <input type="text" placeholder="What do you want to ask me?" id="questionInput">
+          <input class="button-primary ok-btn" type="submit" value="Submit">
         </form>
       </div>
     </div>

@@ -114,6 +114,7 @@
   }
 }
 
+/*custom styles for album-oriented screens*/
 @media (max-width:800px) and (max-height:450px) {
 
   /*Change position of main meeting text*/
@@ -144,6 +145,10 @@
     margin: 1% 2% 2% 2%;
   }
 
+  /*Make the header in projects block smaller*/
+  .projects-container h2{
+    font-size: 1.5em;
+  }
   /*Set normal background for third box*/
   .box-3 {
     background-size: cover;
@@ -152,5 +157,13 @@
   /*Make copyright text smaller*/
   .copyright p{
     font-size: 50%;
+  }
+
+  /*Set the mailbox width for label*/
+  .signup label {
+    width: 100%;
+    /*color:rgb(162, 35, 6);*/
+    text-align: center;
+    letter-spacing: 1px;
   }
 }
