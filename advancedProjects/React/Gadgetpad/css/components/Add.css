@@ -1,0 +1,18 @@
+/*Add component*/
+.Add	{
+	margin:	0	5px	5px	0;
+	width: 90%;
+	border:	1px	solid	rgba(0,	89,	181,	0.82);
+  border-radius: 10px;
+	padding:	5px;
+  display: flex;
+  margin: 10px auto;
+}
+
+.add-title,	.add-year, .add-rating, .add-comment	{
+  flex-flow: row wrap;
+	margin:	5px;
+	padding:	5px;
+	width:	300px;
+	border:	1px	solid	rgba(0,	89,	181,	0.82);
+}

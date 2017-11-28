@@ -1,0 +1,84 @@
+letter-spacing(px/em/%) - расстояние между буквами
+word-spacing(px/em/%) - аналогично
+line-height(px/em/%) - промежуток между строками
+
+text-shadow - влево/вправо(px) | вверх/вниз(px) | степень размытости(px) | цвет
+box-shadow - inset(необязательно, внутр.тень) | влево/вправо(px) | вверх/вниз(px) | степень размытости(px) | цвет
+
+text-indent(px/em) - отступ первой строки
+
+list-style-type - тип маркеров в списке
+list-style-position - расположение маркеров в списке
+
+display:block; - (применительно к списку - выровнять все элементы по ширине )
+display:inline; - в одну строку
+display: inline-block; - два предыдущих пункта вместе
+
+transform: rotate(-45deg); - повернуть элемент на 45 градусов против часовой
+transform: scale => scaleX/scaleY(2); - масштабировать элемент в 2 раза
+transform: translate => translateX/translateY(px/em); - переместить элемент по X/Y на заданное расстояние
+transform: skew => skewX/skewY(45deg, 0); - скашивание элемента на 45 градусов по X ( поменять коорд-ы местами - по Y )
+transform-origin - точка, относительно которой происходят изменения
+
+transition: св-во CSS | тайминг |  анимация;
+transition: all .5s; - изменение всех св-в элемента, длительность анимации - полсекунды
+transition-delay: .5s; - полусекундная отсрочка перед выполнением
+
+//Пример анимации постепенного появления
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+//Применение анимации к элементу
+.classname {
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	animation-iteration-count: 2;
+	animation-direction: alternate;
+	animation-fill-mode: forwards; - чтобы элемент после анимации сохранился в том же виде
+	
+	animation: fadeIn 2s 2 alternate forwards;//аналогично вышенаписанному
+	animation-play-state: running | paused;
+}
+
+//logo перекатывается и после 50% увеличивается в масштабе и крутится на 720 градусов против часовой
+@keyframes logo {
+	from {
+		transform: rotate(0) scale(.5);
+		left: 120%
+	}
+	50% {
+		transform: rotate(-720deg) scale(.5);
+		left: 0;
+	}
+	to {
+		transform: rotate(0) scale(1);
+	}
+}
+
+text-align, vertical-align - выравнивание содержимого в ячейке
+
+border-spacing - расстояние между ячейками
+border-colapse:collapse; - "схлопывание" двойных границ
+
+empty-cells: hide; - спрятать пустые ячейки
+
+float: left/right - расположение элементов по разным сторонам блока
+
+clear:both; - запретить для элемента обтекание ( в данном случае - с обеих сторон )
+
+z-index: число; - приоритет в отображении по слоям ( 3- выше, 2- ниже, и тд)
+
+position: static(default) | absolute(на одной позиции страницы всегда) | relative(потомок перемещается с родителем) | fixed ( всегда в одном месте окна(!)
+
+visibility: visible | hidden - отображение элемента или его скрытие ( но не полное, в отличие от display:none )
+
+//адаптивный дизайн
+медиа-запросы
+
+//применить эту таблицу стилей только тогда, когда окно браузера более 768рх
+<link href="css/large.css" rel="stylesheet" media="(min-width:769px)">
+//от 481 до 768рх
+<link href="css/medium.css" rel="stylesheet" media="(min-width:481px) and (max-width:768px)">
+
+

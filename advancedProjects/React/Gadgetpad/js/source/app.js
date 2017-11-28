@@ -1,18 +1,11 @@
 'use strict';
 
-//import Excel from './components/Excel';
-//import React from 'react';
-//import ReactDOM from 'react-dom';
-//import Logo from './components/Logo';
+window.ee	=	new	EventEmitter();
 
-
-var headers = localStorage.getItem('headers');
-var data = localStorage.getItem('data');
-
-if (!headers) {
-  headers = ['Title', 'Year', 'Rating', 'Comments'];
-  data = [['Test', '2015', '3', 'meh']];
-}
+var headers = ['Gadget', 'Year', 'Rating', 'Comments'];
+var data = [['iPhone 7', '2015', '5', 'Good device, but weak battery.'],
+            ['Samsung Galaxy Note 8', '2017', '5', 'Awesome camera, too big screen.'],
+            ['Xiaomi Redmi 4X', '2016', '4', 'Nice price.']];
 
 var Excel = React.createClass({
   displayName: 'Excel',
@@ -28,12 +21,23 @@ var Excel = React.createClass({
     ),
   },
 
+  componentDidMount: function () {
+    window.ee.addListener("Excel.add", function(item) {
+      data.push(item);
+      this.setState({data:data});
+    });
+  },
+
+  componentWillUnmount: function () {
+    window.ee.removeListener("Excel.add");
+  },
+
   getInitialState: function() {
     return {
       data: this.props.initialData,
       sortby: null,
       descending: false,
-      edit: null, // [row index, cell index],
+      edit: null,
       search: false,
     };
   },
@@ -102,6 +106,19 @@ var Excel = React.createClass({
     this.setState({data: searchdata});
   },
 
+  _renderSearch: function() {
+    if (!this.state.search) {
+      return null;
+    }
+    return (
+      <tr onChange={this._search}>
+        {this.props.headers.map(function(_ignore, idx) {
+          return <td key={idx}><input type="text" data-idx={idx}/></td>;
+        })}
+      </tr>
+    );
+  },
+
   _download: function (format, ev) {
     var contents = format === 'json'
       ? JSON.stringify(this.state.data)
@@ -123,37 +140,15 @@ var Excel = React.createClass({
     ev.target.download = 'data.' + format;
   },
 
-  render: function() {
-    return (
-      <div className="Excel">
-        {this._renderToolbar()}
-        {this._renderTable()}
-      </div>
-    );
-  },
-
   _renderToolbar: function() {
     return (
       <div className="toolbar">
-        <button onClick={this._toggleSearch}>Search</button>
-        <a onClick={this._download.bind(this, 'json')}
+        <a className="Button" onClick={this._toggleSearch}>Search</a>
+        <a className="Button Button-download" onClick={this._download.bind(this, 'json')}
           href="data.json">Export JSON</a>
-        <a onClick={this._download.bind(this, 'csv')}
+        <a className="Button Button-download" onClick={this._download.bind(this, 'csv')}
           href="data.csv">Export CSV</a>
       </div>
-    );
-  },
-
-  _renderSearch: function() {
-    if (!this.state.search) {
-      return null;
-    }
-    return (
-      <tr onChange={this._search}>
-        {this.props.headers.map(function(_ignore, idx) {
-          return <td key={idx}><input type="text" data-idx={idx}/></td>;
-        })}
-      </tr>
     );
   },
 
@@ -181,7 +176,7 @@ var Excel = React.createClass({
                   if (edit && edit.row === rowidx && edit.cell === idx) {
                     var content = (
                       <form onSubmit={this._save}>
-                        <input type="text" defaultValue={cell} />
+                        <input className="form-control" type="text" defaultValue={cell} />
                       </form>
                     );
                   }
@@ -193,14 +188,127 @@ var Excel = React.createClass({
         </tbody>
       </table>
     );
+  },
+
+  render: function() {
+    return (
+      <div className="Excel">
+        {this._renderToolbar()}
+        {this._renderTable()}
+      </div>
+    );
+  },
+});
+
+var Logo = React.createClass ({
+  render() {
+    return <div className="Logo"  />;
   }
 });
 
-class Logo extends React.Component {
-  render() {
-    return <div className="Logo" />;
+var Button = React.createClass ({
+  propTypes: {
+    value:React.PropTypes.string
+  },
+
+  _addItem:function() {
+
+  },
+
+  render:function() {
+    return <a className="Button"
+              onClick={this._addItem}
+           >{this.props.value}
+           </a>
   }
-}
+});
+
+var Add = React.createClass({
+  getInitialState:	function()	{
+			return	{
+					titleIsEmpty: true,
+          yearIsEmpty: true,
+          ratingIsEmpty: true,
+          commentIsEmpty: true
+			};
+	},
+
+  onBtnClickHandler:	function(e)	{
+		e.preventDefault();
+		var title = ReactDOM.findDOMNode(this.refs.title).value;
+    var year = ReactDOM.findDOMNode(this.refs.year).value;
+    var rating = ReactDOM.findDOMNode(this.refs.rating).value;
+    var comment = ReactDOM.findDOMNode(this.refs.comment).value;
+
+		var item = [title, year, rating, comment];
+    console.log(item);
+    data.push(item);
+    console.log(data);
+    window.ee.emit("Excel.add", item);
+  },
+
+  onFieldChange: function (fieldName, e) {
+    if (e.target.value.trim().length	>	0)	{
+			 this.setState({[""+fieldName]:false})
+		}	else {
+			 this.setState({[""+fieldName]:true})
+		}
+  },
+
+  render: function () {
+    var	titleIsEmpty	=	this.state.titleIsEmpty,
+				yearIsEmpty	=	this.state.yearIsEmpty,
+				ratingIsEmpty	=	this.state.ratingIsEmpty,
+        commentIsEmpty = this.state.commentIsEmpty;
+		return (
+			<form className="Add">
+				<input
+					type="text"
+					className="add-title form-control"
+					placeholder="Title"
+          onChange={this.onFieldChange.bind(this, "titleIsEmpty")}
+					defaultValue=""
+					ref="title"
+				/>
+        <input
+          type="text"
+          placeholder="Year"
+          className="add-year form-control"
+          onChange={this.onFieldChange.bind(this, "yearIsEmpty")}
+          defaultValue=""
+					ref="year"
+        />
+        <select
+          type="text"
+          placeholder="Rating"
+          className="add-rating form-control"
+          onChange={this.onFieldChange.bind(this, "ratingIsEmpty")}
+          defaultValue=""
+					ref="rating"
+        > <option>{"5"}</option>
+          <option>{"4"}</option>
+          <option>{"3"}</option>
+          <option>{"2"}</option>
+          <option>{"1"}</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Comment about gadget"
+          className="add-comment form-control"
+          onChange={this.onFieldChange.bind(this, "commentIsEmpty")}
+          defaultValue=""
+					ref="comment"
+        />
+				<button
+        onClick={this.onBtnClickHandler}
+        className="Button"
+				 ref="add_button"
+         disabled={titleIsEmpty	||	yearIsEmpty	||	ratingIsEmpty || commentIsEmpty}
+				>Add</button>
+			</form>
+			);
+	 }
+});
 
 ReactDOM.render(
   <div>
@@ -208,6 +316,8 @@ ReactDOM.render(
       <Logo /> Welcome to Gadgetpad!
     </h1>
     <Excel headers={headers} initialData={data} />
+    <Button value={"Add"}/>
+    <Add />
   </div>,
   document.getElementById('pad')
 );

@@ -134,7 +134,6 @@ var Add = React.createClass({
 	 }
 });
 
-
 //News component
 var News = React.createClass({
   propTypes: {

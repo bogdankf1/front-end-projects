@@ -6,10 +6,12 @@
   background-color: grey;
   border: 2px solid;
   user-select: none;
+  text-align: center;
 }
 .Excel td {
+  height: 70px;
   border: 1px solid;
-  width: 200px;
+  width: 300px;
   text-align: center;
 }
 .Excel tr:nth-child(even) {

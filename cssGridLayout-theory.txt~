@@ -1,0 +1,54 @@
+GRID CONTAINER PROPERTIES:
+ - display: grid | inline-grid | subgrid;
+ - grid-template-columns: 40px 50px auto 50px 40px; ( explicitly: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end]; ) // шаблон столбцов
+ - grid-template-rows: 25% 100px auto; ( explicitly: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; ) // шаблон строк
+   *If item is repeating, you can do like this:  - grid-template-columns:repeat(3, 20px [col-start]) 5%;
+   *If you want to make items same:  - grid-template-columns: 1fr 1fr 1fr;
+ - grid-area: <any name of zone> (example: header, footer, sidebar, main) //имя любой из зоны( эл-та сетки)
+
+//шаблон сетки
+ - grid-template-areas: "header header header header" 
+		        "main main . sidebar"
+		        "footer footer footer footer";
+
+//более удобный вариант
+ - grid-template: [row1-start] 25px "header header header" [row1-end]
+    		  [row2-start] "footer footer footer" 25px [row2-end]
+                  / auto 50px auto;
+
+ - grid-column-gap: 10px;//ширина линий-столбцов( расстояние между блоками по ширине )
+ - grid-row-gap: 15px;//ширина линий-строк( расстояние между блоками по высоте )
+ - grid-gap: <grid-row-gap> <grid-column-gap>; //совмещенный вариант
+ - justify-items: start | end | center | stretch; // аналогично align-items по горизонтали
+ - align-items: start | end | center | stretch; //аналогично flexbox-варианту 
+ - justify-content: start | end | center | stretch | space-around | space-between | space-evenly; //размещение столбцов относительно контейнера по горизонтали
+ - align-content: start | end | center | stretch | space-around | space-between | space-evenly; // размещение строк относительно контейнера по вертикали
+ - grid-auto-columns: <track-size> ...;
+ - grid-auto-rows: <track-size> ...;
+
+	//example start
+	.item-a {
+	  grid-column: 1 / 2;//item from 1 column line to 2
+	  grid-row: 2 / 3; // from 2 to 3 row line
+	}
+	.item-b {
+	  grid-column: 5 / 6; //analog
+	  grid-row: 2 / 3;
+	}
+	//example end
+
+ - grid-auto-flow: row | column | row dense | column dense
+ - grid: none | <grid-template-rows> / <grid-template-columns> | <grid-auto-flow> [<grid-auto-rows> [/ <grid-auto-columns>]];
+
+* column, float, clear and vertical-align - any effect on grid container 	
+
+GRID ITEMS PROPERTIES:
+ - grid-column-start: <number> | <name> | span <number> | span <name> | auto
+ - grid-column-end: <number> | <name> | span <number> | span <name> | auto
+ - grid-row-start: <number> | <name> | span <number> | span <name> | auto
+ - grid-row-end: <number> | <name> | span <number> | span <name> | auto
+ - grid-column: <start-line> / <end-line> | <start-line> / span <value>;
+ - grid-row: <start-line> / <end-line> | <start-line> / span <value>;
+ - grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;
+ - justify-self: start | end | center | stretch;//(justify-items for one item)
+ - align-self: start | end | center | stretch;

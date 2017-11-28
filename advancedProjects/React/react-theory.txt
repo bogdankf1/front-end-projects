@@ -1,0 +1,40 @@
+//Получение доступа отовсюду путем создания ссылки на рендер эл-та
+var myTextAreaCounter = ReactDOM.render(
+	React.createElement(TextAreaCounter, {
+		defaultValue: "Bob",
+	}),
+	document.getElementById("app")
+);
+
+//В этой строке кода устанавливается новое состояние:
+myTextAreaCounter.setState({text: "Hello outside world!"});
+
+//В этой строке кода берется ссылка на основной родительский DOM-узел, создаваемый React:
+var reactAppNode = ReactDOM.findDOMNode(myTextAreaCounter);
+
+//Методы управления(отслеживания) жизненным циклом компонента
+//-----------------------Начало-----------------------------
+
+- componentWillUpdate() . Выполняется до того, как метод render()
+вашего компонента будет вызван еще раз (в результате изме-
+нений свойств или состояния).
+
+- componentDidUpdate() . Выполняется после завершения работы
+метода render() и применения новых изменений в отношении
+исходной DOM-модели.
+
+- componentWillMount() . Выполняется перед вставкой узла
+в DOM-модель.
+
+- componentDidMount() . Выполняется после вставки узла в DOM-
+модель.
+
+- componentWillUnmount() . Выполняется непосредственно перед
+тем, как компонент удаляется из DOM-модели.
+
+- shouldComponentUpdate(newProps, newState) . Вызывается перед
+вызовом метода componentWillUpdate() и дает возможность
+возвратить false и отменить обновление, что означает отказ
+от вызова метода render() .
+
+// ---------------------Конец-------------------------

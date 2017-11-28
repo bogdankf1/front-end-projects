@@ -1,0 +1,21 @@
+FLEX ITEM PROPERTIES:
+ - order: <integer> - порядок расположения
+ - flex-grow: <number> - ширина относительно других flex-эл-тов в контейнере
+ - flex-shrink: <number> - flex-grow наоборот, по сути
+ - flex-basis: <length> | auto - минимальная ширина
+ - flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+ - align-self: ( align-items - for one item )
+
+*float, clear, vertical-align haven't any effect on flex items
+
+
+FLEX CONTAINER PROPERTIES:
+ - display: flex
+ - flex-direction: row | column | reverse for both
+ - flex-wrap: nowrap | wrap | wrap-reverse
+ - flex-flow: <‘flex-direction’> || <‘flex-wrap’>
+ - justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+ - align-items: flex-start | flex-end | center | baseline | stretch *(justify-content for vertical )
+ - align-content: flex-start | flex-end | center | space-between | space-around | stretch; ( justify-content within align-items )
+
+*column-*, ::first-line, ::first-letter don't apply to flex container
