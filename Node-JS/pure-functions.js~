@@ -1,5 +1,4 @@
 'use strict'
-
 //Check the digit for valid numbers
 // function isValidNumber(digit) {
 //   return typeof digit === 'number' && !isNaN(digit);
