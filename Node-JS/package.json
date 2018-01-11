@@ -1,0 +1,15 @@
+{
+  "name": "test-project",
+  "version": "0.0.1",
+  "description": "test for npm",
+  "main": "functional.js",
+  "scripts": {
+    "test": "func"
+  },
+  "author": "Bogdan Burukhin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015-node5": "^1.2.0",
+    "webpack": "^3.10.0"
+  }
+}
